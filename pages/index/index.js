@@ -9,32 +9,101 @@ function initChart(canvas, width, height, dpr) {
     canvas.setChart(chart);
 
     var option = {
-        backgroundColor: "#ffffff",
+        backgroundColor: "#00224f",
+        color: "green",
         series: [{
             label: {
-                normal: {
-                    fontSize: 14
-                }
+                show: false,
+            },
+            itemStyle: {
+                borderWidth: 3,
+                borderColor: "#fff",
             },
             type: 'pie',
             center: ['50%', '50%'],
             radius: ['20%', '40%'],
             data: [{
-                value: 55,
-                name: '北京'
-            }, {
-                value: 20,
-                name: '武汉'
-            }, {
-                value: 10,
-                name: '杭州'
-            }, {
-                value: 20,
-                name: '广州'
-            }, {
-                value: 38,
-                name: '上海'
-            }]
+                    value: 1,
+                    name: '红色',
+                    itemStyle: {
+                        color: "red"
+                    }
+                }, {
+                    value: 1,
+                    name: '绿色',
+                    itemStyle: {
+                        color: "#0cf631"
+                    }
+                }, {
+                    value: 1,
+                    name: '黄色',
+                    itemStyle: {
+                        color: "#f9e709"
+                    }
+                }, {
+                    value: 1,
+                    name: '蓝色',
+                    itemStyle: {
+                        color: "#1355f4"
+                    }
+                }, {
+                    value: 1,
+                    name: '紫色',
+                    itemStyle: {
+                        color: "#670ff1"
+                    }
+                },
+                {
+                    value: 1,
+                    name: '蛋蛋色',
+                    itemStyle: {
+                        color: "#0cf6f5"
+                    }
+                },
+                {
+                    value: 1,
+                    name: '白色',
+                    itemStyle: {
+                        color: "#fff"
+                    }
+                },
+                {
+                    value: 1,
+                    name: '彩色1',
+                    itemStyle: {
+                        color: "red"
+                    }
+                },
+                {
+                    value: 1,
+                    name: '彩色2',
+                    itemStyle: {
+                        color: "green"
+                    }
+                },
+                {
+                    value: 1,
+                    name: '彩色3',
+                    itemStyle: {
+                        color: "yellow"
+                    }
+                },
+                {
+                    value: 1,
+                    name: '彩色4',
+                    itemStyle: {
+                        color: "blue"
+                    }
+                },
+                {
+                    value: 1,
+                    name: '灰色',
+                    itemStyle: {
+                        color: "#919dad"
+                    }
+                },
+
+            ]
         }]
     };
 
