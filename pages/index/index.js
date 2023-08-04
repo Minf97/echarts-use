@@ -26,7 +26,7 @@ function initChart(canvas, width, height, dpr) {
                     value: 1,
                     name: '红色',
                     itemStyle: {
-                        color: "red"
+                        color: 'red'
                     }
                 }, {
                     value: 1,
@@ -78,7 +78,28 @@ function initChart(canvas, width, height, dpr) {
                     value: 1,
                     name: '彩色2',
                     itemStyle: {
-                        color: "green"
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0.2,
+                            y2: 1,
+                            colorStops: [
+                                {
+                                    offset: 0,
+                                    color: 'red' // 0% 处的颜色
+                                },
+                                {
+                                    offset: 0.5,
+                                    color: 'white' // 0% 处的颜色
+                                },
+                                {
+                                    offset: 1,
+                                    color: 'blue' // 0% 处的颜色
+                                }
+                            ],
+                            global: false // 缺省为 false
+                        }
                     }
                 },
                 {
