@@ -1,14 +1,16 @@
 import * as echarts from '../../ec-canvas/echarts';
 
+var chart, option;
+
 function initChart(canvas, width, height, dpr) {
-    const chart = echarts.init(canvas, null, {
+    chart = echarts.init(canvas, null, {
         width: width,
         height: height,
         devicePixelRatio: dpr // new
     });
     canvas.setChart(chart);
 
-    var option = {
+    option = {
         backgroundColor: "#00224f",
         color: "green",
         series: [{
@@ -84,8 +86,7 @@ function initChart(canvas, width, height, dpr) {
                             y: 0,
                             x2: 0.2,
                             y2: 1,
-                            colorStops: [
-                                {
+                            colorStops: [{
                                     offset: 0,
                                     color: 'red' // 0% 处的颜色
                                 },
@@ -106,7 +107,27 @@ function initChart(canvas, width, height, dpr) {
                     value: 1,
                     name: '彩色3',
                     itemStyle: {
-                        color: "yellow"
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: -0.2,
+                            y2: 1,
+                            colorStops: [{
+                                    offset: 0,
+                                    color: 'red' // 0% 处的颜色
+                                },
+                                {
+                                    offset: 0.5,
+                                    color: 'white' // 0% 处的颜色
+                                },
+                                {
+                                    offset: 1,
+                                    color: '#61f7a0' // 0% 处的颜色
+                                }
+                            ],
+                            global: false // 缺省为 false
+                        }
                     }
                 },
                 {
@@ -127,8 +148,20 @@ function initChart(canvas, width, height, dpr) {
             ]
         }]
     };
-
     chart.setOption(option);
+
+    chart.on('click', ({ data: { name } }) => {
+        const data = option.series[0].data;
+        data.forEach(item => {
+            if(item.name == name) {
+                item.itemStyle.color = "pink";
+                chart.setOption(option)
+            }
+        })
+    })
+    // chart.on('mousemove', ({ data: { name } }) => {
+    //     console.log(name);
+    // })
     return chart;
 }
 Page({
@@ -137,5 +170,7 @@ Page({
             onInit: initChart
         }
     },
-    onLoad() {},
+    onLoad() {
+        
+    },
 })
